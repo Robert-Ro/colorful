@@ -7,35 +7,39 @@ export default () => {
   useEffect(() => {
     registerMicroApps([
       {
-        name: "reactApp",
-        entry: "//localhost:3000",
+        name: "RestofYou",
+        entry: "//localhost:5000",
         container: "#container",
-        activeRule: "/app-react",
+        activeRule: "/app-rest",
       },
       {
-        name: "vueApp",
-        entry: "//localhost:8080",
+        name: "Todo-mvc",
+        entry: "//localhost:5174",
         container: "#container",
-        activeRule: "/app-vue",
+        activeRule: "/app-todo",
       },
-      {
-        name: "angularApp",
-        entry: "//localhost:4200",
-        container: "#container",
-        activeRule: "/app-angular",
-      },
+      // {
+      //   name: "angularApp",
+      //   entry: "//localhost:4200",
+      //   container: "#container",
+      //   activeRule: "/app-angular",
+      // },
     ]);
     // 启动 qiankun
     start();
-  });
+  }, []);
 
   // TODO add icons
   const data: ItemProps[] = [
-    { title: "TODOs", description: "a tool to manage todos task", href: "" },
+    {
+      title: "TODOs",
+      description: "a tool to manage todos task",
+      href: "app-todo",
+    },
     {
       title: "Rest of You",
       description: "show the rest of some target, like your lifetime",
-      href: "",
+      href: "app-rest",
     },
     {
       title: "2323",
@@ -52,6 +56,7 @@ export default () => {
           <Item {...item} key={item.title} />
         ))}
       </div>
+      <div id="container"></div>
     </>
   );
 };
